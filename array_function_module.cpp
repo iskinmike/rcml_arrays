@@ -47,7 +47,7 @@ const unsigned int COUNT_ARRAY_FUNCTIONS = 4;
 
 #define DEFINE_ALL_FUNCTIONS    \
   ADD_ARRAY_FUNCTION2("create") \
-  ADD_ARRAY_FUNCTION1("delete") \
+  ADD_ARRAY_FUNCTION1("remove") \
   ADD_ARRAY_FUNCTION3("set")    \
   ADD_ARRAY_FUNCTION2("get")
 
