@@ -13,7 +13,7 @@
 #include "array_function_module.h"
 
 #define IID "RCT.Array_functions_module_v107"
-const unsigned int COUNT_ARRAY_FUNCTIONS = 3;
+const unsigned int COUNT_ARRAY_FUNCTIONS = 4;
 
 #define ADD_ARRAY_FUNCTION1(FUNCTION_NAME)                                \
   array_functions[function_id] = new FunctionData;                        \
