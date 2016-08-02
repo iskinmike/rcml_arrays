@@ -13,15 +13,15 @@ class ArrayMap
   std::map<std::string, std::vector<float>> arrays;
 public:
   void create(std::string name, int size); 
-  void delete(std::string name); 
-  void set(std::string name, int position, float value);
-  float get(std::string name, int position);
+  void remove(std::string name); 
+  void set(std::string name, size_t position, float value);
+  float get(std::string name, size_t position);
   ArrayMap(){};
   ~ArrayMap(){};
 };
 
 class ArrayFunctionModule : public FunctionModule {
-  FunctionData **math_functions;
+  FunctionData **array_functions;
   ArrayMap module_array;
 
 #if MODULE_API_VERSION > 000

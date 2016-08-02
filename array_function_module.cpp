@@ -1,6 +1,9 @@
 #include <cstdlib>
 #include <exception>
-#include <ctime>
+
+#include <map>
+#include <vector>
+#include <string>
 
 #include <cstdarg>
 
@@ -85,14 +88,14 @@ void ArrayMap::create(std::string name, int size){
     throw std::exception();
   }
 }; 
-void ArrayMap::delete(std::string name){
+void ArrayMap::remove(std::string name){
   if (arrays.count(name)) {
     arrays.erase(name);
   } else {
     throw std::exception();
   }
 }; 
-void ArrayMap::set(std::string name, int position, float value){
+void ArrayMap::set(std::string name, size_t position, float value){
   if (arrays.count(name)) {
     if ( (arrays[name].size() - 1) < position) {
       arrays[name][position] = value;
@@ -103,7 +106,7 @@ void ArrayMap::set(std::string name, int position, float value){
     throw std::exception();
   }
 };
-float ArrayMap::get(std::string name, int position){
+float ArrayMap::get(std::string name, size_t position){
   if (arrays.count(name)) {
     if ( (arrays[name].size() - 1) < position) {
       return arrays[name][position];
@@ -124,7 +127,6 @@ FunctionResult *ArrayFunctionModule::executeFunction(int run_index, system_value
   }
 
   try {
-    variable_value *input = (variable_value *)(*args);
     variable_value rez = 0;
     switch (function_index) {
       case 1: {
@@ -136,7 +138,7 @@ FunctionResult *ArrayFunctionModule::executeFunction(int run_index, system_value
       }
       case 2: {
         const char* name = (const char *)args[0];
-        module_array.delete(name);
+        module_array.remove(name);
         break;
       }
       case 3: {
