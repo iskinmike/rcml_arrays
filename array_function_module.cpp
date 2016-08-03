@@ -83,7 +83,7 @@ int ArrayFunctionModule::startProgram(int run_index, int pc_index) { return 0; }
 void ArrayMap::create(std::string name, int size){
   if (!arrays.count(name)) {
     std::vector<float> empty_vector(size, 0);
-    arrays.emplace(name, empty_vector);
+    arrays[name] = empty_vector;
   } else {
     throw std::exception();
   }
@@ -97,7 +97,7 @@ void ArrayMap::remove(std::string name){
 }; 
 void ArrayMap::set(std::string name, size_t position, float value){
   if (arrays.count(name)) {
-    if ( (arrays[name].size() - 1) < position) {
+    if ( position <= (arrays[name].size() - 1) ) {
       arrays[name][position] = value;
     } else {
       throw std::exception();
@@ -108,7 +108,7 @@ void ArrayMap::set(std::string name, size_t position, float value){
 };
 float ArrayMap::get(std::string name, size_t position){
   if (arrays.count(name)) {
-    if ( (arrays[name].size() - 1) < position) {
+    if ( position <= (arrays[name].size() - 1) ) {
       return arrays[name][position];
     } else {
       throw std::exception();
