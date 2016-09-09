@@ -11,7 +11,7 @@ API_VERSION = current
 # Constants
 .PHONY: debug
 
-MODULE_HEADERS_DIR = "d:\workspace\rcml\source\module_headers\${API_VERSION}"
+MODULE_HEADERS_DIR = "C:\Program Files (x86)\Jenkins\workspace\module_headers\"${API_VERSION}
 
 INCLUDE_DIR_FLAGS = -I${MODULE_HEADERS_DIR}
 FLAGS_MUTUAL = -Wall -m32 -std=c++11 ${INCLUDE_DIR_FLAGS} -MMD -MP -MF "${OBJECTDIR}/$@.d" -DBUILD_NUMBER=${BUILD_NUMBER}
